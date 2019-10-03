@@ -18,6 +18,14 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<distributionManagement>
+		<repository>
+			<id>bintray-snowtoslowscompany-workOpportunityProject</id>
+			<name>snowtoslowscompany-workOpportunityProject</name>
+			<url>https://api.bintray.com/maven/snowtoslowscompany/workOpportunityProject/blog-service/;publish=1</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
