@@ -12,12 +12,4 @@ public class Helpers {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
-    public interface commonVariables{
-        String principalId = idHelper();//universal ID and principal in comment
-
-        String userId = idHelper();//for post
-
-
-
-    }
 }
