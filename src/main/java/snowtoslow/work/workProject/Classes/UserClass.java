@@ -1,9 +1,8 @@
 package snowtoslow.work.workProject.Classes;
 
-import snowtoslow.work.workProject.Helper.Helpers;
-import snowtoslow.work.workProject.Helper.Helpers.commonVariables;
+public class UserClass{
 
-public class UserClass implements commonVariables {
+    private String userId;
 
     private String userName;
 

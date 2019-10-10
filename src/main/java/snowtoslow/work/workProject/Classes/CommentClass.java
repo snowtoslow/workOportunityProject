@@ -1,21 +1,21 @@
 package snowtoslow.work.workProject.Classes;
 
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import snowtoslow.work.workProject.Helper.Helpers.commonVariables;
+
 
 
 @RestController
 @RequestMapping("comment")
-public class CommentClass implements commonVariables {
+public class CommentClass  {
+
+    private String principalId;
 
     private String blogContent;
 
     private int postId;
 
     private String createTime;
-
 
 
     public String getBlogContent() {
@@ -43,4 +43,11 @@ public class CommentClass implements commonVariables {
         this.createTime = createTime;
     }
 
+    public String getPrincipalId() {
+        return principalId;
+    }
+
+    public void setPrincipalId(String principalId) {
+        this.principalId = principalId;
+    }
 }
