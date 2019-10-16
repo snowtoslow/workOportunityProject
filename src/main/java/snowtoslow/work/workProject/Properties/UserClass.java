@@ -1,7 +1,6 @@
-package snowtoslow.work.workProject.Classes;
+package snowtoslow.work.workProject.Properties;
 
 public class UserClass{
-
     private String userId;
 
     private String userName;
@@ -11,6 +10,10 @@ public class UserClass{
     private String firstName;
 
     private String lastName;
+
+    private String emailAdress;
+
+    private String userStatus;
 
     public String getUserName() {
         return userName;
@@ -60,9 +63,14 @@ public class UserClass{
         this.userStatus = userStatus;
     }
 
-    private String emailAdress;
 
-    private String userStatus;
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
 
 }

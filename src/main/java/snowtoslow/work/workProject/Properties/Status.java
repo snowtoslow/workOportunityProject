@@ -1,4 +1,4 @@
-package snowtoslow.work.workProject.Classes;
+package snowtoslow.work.workProject.Properties;
 
 public class Status {
 

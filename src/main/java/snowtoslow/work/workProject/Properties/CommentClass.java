@@ -1,12 +1,6 @@
-package snowtoslow.work.workProject.Classes;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+package snowtoslow.work.workProject.Properties;
 
 
-
-@RestController
-@RequestMapping("comment")
 public class CommentClass  {
 
     private String principalId;
