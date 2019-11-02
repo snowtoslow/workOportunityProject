@@ -1,18 +1,28 @@
 package snowtoslow.work.workProject.models;
 
 
+import javax.persistence.*;
 import java.util.Date;
 
+
+@Entity
 public class Comment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "comment_id")
     private int commentId;
 
+    @Column(name = "post_content")
     private String postContent;
 
+    @Column(name = "create_time")
     private Date createTime;
 
+    @Column(name = "user_id")
     private int userId;
 
+    @Column(name = "post_id")
     private int postId;
 
     public int getCommentId() {

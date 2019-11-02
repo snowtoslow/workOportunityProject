@@ -1,18 +1,33 @@
 package snowtoslow.work.workProject.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int userId;
 
+    @Column(name = "username")
     private String userName;
 
+    @Column(name = "password")
     private String userPassword;
 
+    @Column(name = "last_name")
     private String userLastName;
 
+    @Column(name = "first_name")
     private String userFirstName;
 
+    @Column(name = "user_email")
     private String userEmail;
+
+    @Column(name = "user_status")
+    private PostStatus postStatus;
 
     public int getUserId() {
         return userId;

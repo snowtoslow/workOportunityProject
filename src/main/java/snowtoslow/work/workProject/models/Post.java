@@ -1,18 +1,32 @@
 package snowtoslow.work.workProject.models;
 
+import javax.persistence.*;
 import java.util.Date;
 
+
+@Entity
+@Table(name = "post")
 public class Post {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
     private int postId;
 
+    @Column(name = "post_title")
     private String postTitle;
 
+    @Column(name = "post_content")
     private String postContent;
 
+    @Column(name = "created_at")
     private Date createdAt;
 
+    @Column(name = "update_at")
     private Date updatedAt;
+
+    @Column(name = "status")
+    private PostStatus postStatus;
 
     public int getPostId() {
         return postId;
