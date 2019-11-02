@@ -1,16 +1,23 @@
 package snowtoslow.work.workProject.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
+
 import snowtoslow.work.workProject.models.User;
-import snowtoslow.work.workProject.repository.UserRepository;
+
 
 import java.util.List;
 
-@Service
 public interface UserService {
 
+    List<User> readAllUsers();
 
+    User readUserById(int id);
+
+    ResponseEntity<Object> createUser(User user);
+
+    ResponseEntity<Object> updateUser(User user);
+
+    void deleteUser(int id);
 
 
 }

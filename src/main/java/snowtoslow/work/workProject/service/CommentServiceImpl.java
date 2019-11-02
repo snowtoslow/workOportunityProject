@@ -2,26 +2,28 @@ package snowtoslow.work.workProject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import snowtoslow.work.workProject.models.Comment;
-import snowtoslow.work.workProject.repository.CommentReposiroty;
+import snowtoslow.work.workProject.repository.CommentRepository;
 
 
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-public class CommentImplementation {
+@Service
+public class CommentServiceImpl {
 
     @Autowired
-    public CommentReposiroty commentReposiroty;
+    public CommentRepository commentRepository;
 
-    List<Comment> readAllComments(){
-        return commentReposiroty.findAll();
+    public List<Comment> readAllComments(){
+        return commentRepository.findAll();
     }
 
     public Comment readCommentById(int id){
-        Optional<Comment> comment = commentReposiroty.findById(id);
+        Optional<Comment> comment = commentRepository.findById(id);
 
         if (!comment.isPresent()){
             System.out.println("There is not comment with such ID" + id);
@@ -32,7 +34,7 @@ public class CommentImplementation {
 
     public ResponseEntity<Object> createComment(Comment comment){
 
-        Comment savedComment = commentReposiroty.save(comment);
+        Comment savedComment = commentRepository.save(comment);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{commentId}")
                 .buildAndExpand(comment.getCommentId()).toUri();
@@ -43,17 +45,17 @@ public class CommentImplementation {
 
     public ResponseEntity<Object> updateComment(Comment comment){
 
-        Optional<Comment> commentOptional = commentReposiroty.findById(comment.getCommentId());
+        Optional<Comment> commentOptional = commentRepository.findById(comment.getCommentId());
 
         if(!commentOptional.isPresent())
             return ResponseEntity.notFound().build();
 
-        commentReposiroty.save(comment);
+        commentRepository.save(comment);
         return ResponseEntity.noContent().build();
     }
 
     public void deleteComment(int id){
-        commentReposiroty.deleteById(id);
+        commentRepository.deleteById(id);
     }
 
 

@@ -2,6 +2,7 @@ package snowtoslow.work.workProject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import snowtoslow.work.workProject.models.Post;
 import snowtoslow.work.workProject.repository.PostRepository;
@@ -10,12 +11,13 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-public class PostImplementattion {
+@Service
+public class PostServiceImpl {
 
     @Autowired
-    public PostRepository postRepository;
+    private PostRepository postRepository;
 
-    List<Post> readAllPosts(){
+    public List<Post> readAllPosts(){
         return postRepository.findAll();
     }
 
@@ -23,7 +25,7 @@ public class PostImplementattion {
         Optional<Post> post = postRepository.findById(id);
 
         if (!post.isPresent()){
-            System.out.println("Ther is not student with such ID" + id);
+            System.out.println("There is not post with such ID" + id);
 
         }
         return post.get();

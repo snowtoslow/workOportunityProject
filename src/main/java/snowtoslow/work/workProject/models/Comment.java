@@ -3,6 +3,7 @@ package snowtoslow.work.workProject.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -24,6 +25,11 @@ public class Comment {
 
     @Column(name = "post_id")
     private int postId;
+
+    @ManyToMany
+    private List<User> users;
+
+
 
     public int getCommentId() {
         return commentId;
@@ -63,5 +69,13 @@ public class Comment {
 
     public void setPostId(int postId) {
         this.postId = postId;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

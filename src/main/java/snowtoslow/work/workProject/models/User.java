@@ -1,6 +1,11 @@
 package snowtoslow.work.workProject.models;
 
+import jdk.nashorn.internal.runtime.options.Option;
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -27,7 +32,16 @@ public class User {
     private String userEmail;
 
     @Column(name = "user_status")
-    private PostStatus postStatus;
+    @Enumerated(EnumType.STRING)
+    private UserStatus userStatus;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
+    private List<Post> posts;
+
+    @ManyToMany
+    private List<Comment> comments;
+
 
     public int getUserId() {
         return userId;
@@ -40,6 +54,7 @@ public class User {
     public String getUserName() {
         return userName;
     }
+
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -75,5 +90,29 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public UserStatus getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

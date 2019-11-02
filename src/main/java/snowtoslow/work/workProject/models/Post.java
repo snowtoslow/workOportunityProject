@@ -1,7 +1,13 @@
 package snowtoslow.work.workProject.models;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.stereotype.Controller;
+
+import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -26,7 +32,15 @@ public class Post {
     private Date updatedAt;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private PostStatus postStatus;
+
+    @Column(name = "user_id")
+    private Integer user_id;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id",referencedColumnName = "post_id")
+    private List<Comment> comments;
 
     public int getPostId() {
         return postId;
@@ -66,5 +80,29 @@ public class Post {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public PostStatus getPostStatus() {
+        return postStatus;
+    }
+
+    public void setPostStatus(PostStatus postStatus) {
+        this.postStatus = postStatus;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

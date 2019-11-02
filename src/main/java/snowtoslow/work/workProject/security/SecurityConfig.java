@@ -1,4 +1,5 @@
-package snowtoslow.work.workProject.Security;
+package snowtoslow.work.workProject.security;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -7,19 +8,20 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import snowtoslow.work.workProject.Controllers.UserController;
-import snowtoslow.work.workProject.Properties.UserClass;
+import snowtoslow.work.workProject.models.User;
+
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private UserController userController = new UserController();
+
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser(userController.getUserName()).password(passwordEncoder().encode(userController.getPassword())).roles("ADMIN");
+                .withUser("vovaUniversal").password(passwordEncoder().encode("password")).roles("ADMIN");
                 //.and()
                 //.withUser("kumar").password(passwordEncoder().encode("test2")).roles("USER");
     }
