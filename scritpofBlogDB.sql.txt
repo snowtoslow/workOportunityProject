@@ -1,0 +1,54 @@
+﻿create schema if not exists blogDB collate latin1_swedish_ci;
+
+create table if not exists comment
+(
+	comment_id int auto_increment
+		primary key,
+	post_content text not null,
+	create_time datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP,
+	user_id int not null,
+	post_id int not null
+);
+
+create table if not exists postStatus
+(
+	status enum('ACTIVE', 'CURRENT', 'FINISHED') not null
+		primary key
+);
+
+create table if not exists userStatus
+(
+	user_status enum('ONLINE', 'OFFLINE', 'ACTIVE', 'INNACTIVE') not null
+		primary key
+);
+
+create table if not exists user
+(
+	username varchar(255) not null,
+	password varchar(255) not null,
+	last_name varchar(255) not null,
+	first_name varchar(255) not null,
+	user_email varchar(255) not null,
+	user_id int not null
+		primary key,
+	user_status enum('ONLINE', 'OFFLINE', 'ACTIVE', 'INNACTIVE') null,
+	constraint fk_user_status
+		foreign key (user_status) references userStatus (user_status)
+);
+
+create table if not exists post
+(
+	post_title varchar(255) not null,
+	post_content varchar(255) not null,
+	created_at timestamp default CURRENT_TIMESTAMP not null,
+	update_at timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
+	post_id int not null
+		primary key,
+	user_id int null,
+	status enum('ACTIVE', 'CURRENT', 'FINISHED') null,
+	constraint fk_status
+		foreign key (status) references postStatus (status),
+	constraint fk_user_id
+		foreign key (user_id) references user (user_id)
+);
+
