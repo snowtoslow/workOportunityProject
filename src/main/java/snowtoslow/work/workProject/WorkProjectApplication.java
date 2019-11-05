@@ -8,5 +8,6 @@ public class WorkProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WorkProjectApplication.class, args);
+
 	}
 }
