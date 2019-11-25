@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+
+    - loadData:
+        encoding: UTF-8
+        file: db/changelog/csv/userStatus.csv
+        separator: ;
+        tableName: user_status
+
+    - loadData:
+        encoding: UTF-8
+        file: db/changelog/csv/postStatus.csv
+        separator: ;
+        tableName: post_status
+
+    - loadData:
+        encoding: UTF-8
+        file: db/changelog/csv/user.csv
+        separator: ;
+        tableName: user
+
+    - loadData:
+        encoding: UTF-8
+        file: db/changelog/csv/post.csv
+        separator: ;
+        tableName: post
+
+    - loadData:
+        encoding: UTF-8
+        file: db/changelog/csv/comment.csv
+        separator: ;
+        tableName: comment

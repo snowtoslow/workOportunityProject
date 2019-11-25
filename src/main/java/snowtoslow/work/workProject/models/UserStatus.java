@@ -2,10 +2,12 @@ package snowtoslow.work.workProject.models;
 
 
 import javax.persistence.Column;
+import javax.persistence.Table;
 
+@Table(name = "user_status")
 public enum UserStatus {
 
-    @Column(name = "user_status")
-    ONLINE, OFFLINE,ACTIVE,INNACTIVE
+    @Column(name = "status")
+    ACTIVE, INACTIVE, BLOCKED
 
 }

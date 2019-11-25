@@ -1,8 +1,12 @@
 package snowtoslow.work.workProject.models;
 
 
+import javax.persistence.Column;
+import javax.persistence.Table;
 
+@Table(name = "post_status")
 public enum PostStatus {
-    ACTIVE,CURRENT,FINISHED;
+    @Column(name = "status")
+    DRAFT,PUBLISHED
 
 }

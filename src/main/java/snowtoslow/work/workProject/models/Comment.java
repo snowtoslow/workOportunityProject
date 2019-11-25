@@ -7,6 +7,7 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "comment", schema = "public")
 public class Comment {
 
     @Id
@@ -14,8 +15,8 @@ public class Comment {
     @Column(name = "comment_id")
     private int commentId;
 
-    @Column(name = "post_content")
-    private String postContent;
+    @Column(name = "comment_content")
+    private String commentContent;
 
     @Column(name = "create_time")
     private Date createTime;
@@ -23,12 +24,9 @@ public class Comment {
     @Column(name = "user_id")
     private int userId;
 
-    @Column(name = "post_id")
-    private int postId;
-
-    @ManyToMany
-    private List<User> users;
-
+    @ManyToOne
+    @JoinColumn(name="post_id", nullable=false)
+    private Post post;
 
 
     public int getCommentId() {
@@ -39,12 +37,12 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public String getPostContent() {
-        return postContent;
+    public String getCommentContent() {
+        return commentContent;
     }
 
-    public void setPostContent(String postContent) {
-        this.postContent = postContent;
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
     }
 
     public Date getCreateTime() {
@@ -55,27 +53,21 @@ public class Comment {
         this.createTime = createTime;
     }
 
+
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
     public int getUserId() {
         return userId;
     }
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public  int getPostId() {
-        return postId;
-    }
-
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 }

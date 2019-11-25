@@ -1,21 +1,19 @@
 package snowtoslow.work.workProject.models;
 
-import org.hibernate.annotations.Cascade;
-import org.springframework.stereotype.Controller;
 
-import javax.jws.soap.SOAPBinding;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
 
 
 @Entity
-@Table(name = "post")
+@Table(name = "post", schema = "public")
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
     private int postId;
 
@@ -25,22 +23,25 @@ public class Post {
     @Column(name = "post_content")
     private String postContent;
 
-    @Column(name = "created_at")
+    @Column(name = "create_time")
     private Date createdAt;
 
-    @Column(name = "update_at")
+    @Column(name = "update_time")
     private Date updatedAt;
 
-    @Column(name = "status")
+    @Column(name = "post_status")
     @Enumerated(EnumType.STRING)
     private PostStatus postStatus;
 
-    @Column(name = "user_id")
-    private Integer user_id;
+   @OneToMany(mappedBy = "post")
+   private Collection<Comment> comments;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "post_id",referencedColumnName = "post_id")
-    private List<Comment> comments;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
+
 
     public int getPostId() {
         return postId;
@@ -82,13 +83,6 @@ public class Post {
         this.updatedAt = updatedAt;
     }
 
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
 
     public PostStatus getPostStatus() {
         return postStatus;
@@ -98,11 +92,11 @@ public class Post {
         this.postStatus = postStatus;
     }
 
-    public List<Comment> getComments() {
-        return comments;
+    public User getUser() {
+        return user;
     }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

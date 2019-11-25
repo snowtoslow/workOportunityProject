@@ -1,19 +1,21 @@
 package snowtoslow.work.workProject.models;
 
-import jdk.nashorn.internal.runtime.options.Option;
-import org.springframework.context.annotation.Bean;
+
+
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int userId;
 
     @Column(name = "username")
@@ -35,12 +37,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
-    private List<Post> posts;
-
-    @ManyToMany
-    private List<Comment> comments;
 
 
     public int getUserId() {
@@ -92,14 +88,6 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public List<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
-
     public UserStatus getUserStatus() {
         return userStatus;
     }
@@ -108,11 +96,4 @@ public class User {
         this.userStatus = userStatus;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }

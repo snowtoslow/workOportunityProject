@@ -1,0 +1,231 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: vova
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_status
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+
+        - createTable:
+            tableName: user_status
+            columns:
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+        - createTable:
+            tableName: post_status
+            columns:
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+        - createTable:
+            tableName: post
+            columns:
+              - column:
+                  name: post_id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: post_title
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_content
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: create_time
+                  type: TIMESTAMP WITHOUT TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_time
+                  type: TIMESTAMP WITHOUT TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigserial
+                  constraints:
+                    unique: true
+                    nullable: false
+
+
+
+        - createTable:
+            tableName: comment
+            columns:
+              - column:
+                  name: comment_id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: comment_content
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: create_time
+                  type: TIMESTAMP WITHOUT TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigserial
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: post_id
+                  type: bigserial
+                  constraints:
+                    unique: true
+                    nullable: false
+
+
+        - loadData:
+            encoding: UTF-8
+            file: db/changelog/csv/userStatus.csv
+            separator: ;
+            tableName: user_status
+
+        - loadData:
+            encoding: UTF-8
+            file: db/changelog/csv/postStatus.csv
+            separator: ;
+            tableName: post_status
+
+        - loadData:
+            encoding: UTF-8
+            file: db/changelog/csv/user.csv
+            separator: ;
+            tableName: user
+
+        - loadData:
+            encoding: UTF-8
+            file: db/changelog/csv/post.csv
+            separator: ;
+            tableName: post
+
+        - loadData:
+            encoding: UTF-8
+            file: db/changelog/csv/comment.csv
+            separator: ;
+            tableName: comment
+
+
+
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_status
+            baseTableName: user
+            constraintName: fk_users_status
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: status
+            referencedTableName: user_status
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: post_status
+            baseTableName: post
+            constraintName: fk_post_status
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: status
+            referencedTableName: post_status
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: comment
+            constraintName: fk_user_id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: user
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: comment
+            constraintName: fk_post_id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: post_id
+            referencedTableName: post
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: post
+            constraintName: fk_user_id_for_post
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: user
+            validate: true
+
+
+
+
+
+
