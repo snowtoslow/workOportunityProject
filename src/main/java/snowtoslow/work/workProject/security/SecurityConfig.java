@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .httpBasic();
+
     }
 
     @Autowired

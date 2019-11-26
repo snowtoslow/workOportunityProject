@@ -12,3 +12,10 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+  thymeleaf:
+    template-loader-path: classpath:/templates
+    suffix: .html
+    cache:  false
+
+
+
