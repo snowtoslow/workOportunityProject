@@ -24,17 +24,17 @@ public class Post {
     private String postContent;
 
     @Column(name = "create_time")
-    private Date createdAt;
+    private Date create_time;
 
     @Column(name = "update_time")
-    private Date updatedAt;
+    private Date update_time;
 
     @Column(name = "post_status")
     @Enumerated(EnumType.STRING)
     private PostStatus postStatus;
 
-   @OneToMany(mappedBy = "post")
-   private Collection<Comment> comments;
+    @OneToMany(mappedBy = "post")
+    private Collection<Comment> comments;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -67,22 +67,21 @@ public class Post {
         this.postContent = postContent;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
-
 
     public PostStatus getPostStatus() {
         return postStatus;
@@ -98,5 +97,13 @@ public class Post {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Collection<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Collection<Comment> comments) {
+        this.comments = comments;
     }
 }

@@ -15,27 +15,27 @@ public class UserController implements UserService {
     @Autowired
     private UserServiceImpl userService;
 
-    @GetMapping("/users")
+    @GetMapping("/user")
     public List<User> readAllUsers() {
         return userService.readAllUsers();
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/user/{userId}")
     public User readUserById(@PathVariable int id) {
         return userService.readUserById(id);
     }
 
-    @PostMapping("/users")
+    @PostMapping("/user")
     public ResponseEntity<Object> createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    @PutMapping("/users/update")
+    @PutMapping("/user/update")
     public ResponseEntity<Object> updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
 
-    @DeleteMapping("/users/{userId}")
+    @DeleteMapping("/user/{userId}")
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
     }

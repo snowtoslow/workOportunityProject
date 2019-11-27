@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ListOfPosts</title>
+</head>
+<div align="center">
+    <h1>Post List</h1>
+    <a href="/new">Create New Product</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+
+        <thead>
+
+        <tr>
+            <th>Post ID</th>
+            <th>Post Title</th>
+            <th>Post Content</th>
+            <th>Created AT</th>
+            <th>Update At</th>
+            <th>Post Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.postId}"></td>
+            <td th:text="${post.postTitle}"></td>
+            <td th:text="${post.postContent}"></td>
+            <td th:text="${post.create_time}"></td>
+            <td th:text="${post.update_time}"></td>
+            <td th:text="${post.postStatus}"></td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${post.postId})}">Edit</a>
+            </td>
+
+
+
+        </tbody>
+    </table>
+</div>
+</html>

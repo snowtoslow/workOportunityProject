@@ -1,31 +1,25 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport">
-    <title>Post Manager</title>
+    <meta charset="utf-8"/>
+    <title>BLOG Manager</title>
+    <div align="center" >
+        <h1><font size = "10">WELCOME TO yBLOG</font><br /></h1>
+
+    </div>
+
 </head>
 <body>
-<div align = "center">
-    <h1>Post Manager</h1>
-    <table border = "1">
-        <thead>
-        <tr>
-            <th>Post ID</th>
-            <th>Post Title</th>
-            <th>Post Content</th>
-            <th>Created At</th>
-            <th>Update At</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+<div align="center">
+    <div align="right-center">
+        <a th:href="@{posts}"><font size = "7">POST</font><br /></a>
+    </div>
 
-        </tbody>
+    <div align="left-center">
+        <a th:href="@{users}"><font size = "7">USERS</font><br /></a>
+    </div>
 
-    </table>
+
 </div>
-
 </body>
-</html>
+</html >
