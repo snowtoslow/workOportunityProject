@@ -12,17 +12,14 @@
           method="post">
 
         <table border="0" cellpadding="10">
-            <tr>
-                <td>User Id:</td>
-                <td><input type="number" th:field="*{userId}" /></td>
-            </tr>
+
             <tr>
                 <td>UserName:</td>
                 <td><input type="text" th:field="*{userName}" /></td>
             </tr>
             <tr>
                 <td>User Password:</td>
-                <td><input type="text" th:field="*{userPassword}" /></td>
+                <td><input type="password" th:field="*{userPassword}" /></td>
             </tr>
             <tr>
                 <td>Last Name:</td>
@@ -34,11 +31,16 @@
             </tr>
             <tr>
                 <td>Email:</td>
-                <td><input type="text" th:field="*{userEmail}" /></td>
+                <td><input type="email" th:field="*{userEmail}" /></td>
             </tr>
             <tr>
                 <td>User Status:</td>
-                <td><input type="text" th:field="*{userStatus}" /></td>
+                <td><input type="text" th:field="*{userStatus}" />
+
+
+                </td>
+
+
             </tr>
 
             <tr>

@@ -24,8 +24,7 @@
             <td th:text="${comment.commentId}"></td>
             <td th:text="${comment.commentContent}"></td>
             <td th:text="${comment.createTime}"></td>
-            <td th:text="${comment.userId}"></td>
-            <td th:text="${comment.postId}"></td>
+            <td><span th:each="user : ${post.userId}" th:text="${user.userId} "/></td>
             <td><span th:each="post : ${comment.post}" th:text="${post.postId} "/></td>
             <td>
 
@@ -36,4 +35,4 @@
         </tbody>
     </table>
 </div>
-</html
+</html>

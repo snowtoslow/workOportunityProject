@@ -36,7 +36,8 @@
             <td><span th:each="comment : ${post.comments}" th:text="${comment.commentContent} "/></td>
             <td>
                 <a th:href="@{/edit/{id}(id=${post.postId})}">Edit</a> |
-                <a th:href="@{/delete/{id}(id=${post.postId})}">Delete</a>
+                <a th:href="@{/delete/{id}(id=${post.postId})}">Delete</a> |
+                <a th:href="@{/newcomment}">Add comment</a>
             </td>
 
 

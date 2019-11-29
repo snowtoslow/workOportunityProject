@@ -14,12 +14,6 @@
 
         <table border="0" cellpadding="10">
             <tr>
-                <td>Post ID:</td>
-                <td>
-                    <input type="number" th:field="*{postId}" readonly="readonly" />
-                </td>
-            </tr>
-            <tr>
                 <td>Post Title:</td>
                 <td>
                     <input type="text" th:field="*{postTitle}" />
@@ -29,14 +23,7 @@
                 <td>Post Status:</td>
                 <td><input type="text" th:field="*{postStatus}" /></td>
             </tr>
-            <tr>
-                <td>Time of Start Editing:</td>
-                <td><input type="datetime-local" th:field="*{create_time}" /></td>
-            </tr>
-            <tr>
-                <td>Time of finish Editing:</td>
-                <td><input type="datetime-local" th:field="*{update_time}" /></td>
-            </tr>
+
             <tr>
                 <td>Post Content:</td>
                 <td><input type="text" th:field="*{postContent}" /></td>

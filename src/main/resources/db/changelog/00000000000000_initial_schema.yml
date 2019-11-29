@@ -129,13 +129,11 @@ databaseChangeLog:
                   name: user_id
                   type: bigserial
                   constraints:
-                    unique: true
                     nullable: false
               - column:
                   name: post_id
                   type: bigserial
                   constraints:
-                    unique: true
                     nullable: false
 
 

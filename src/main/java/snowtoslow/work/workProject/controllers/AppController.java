@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import snowtoslow.work.workProject.models.Comment;
 import snowtoslow.work.workProject.models.Post;
 import snowtoslow.work.workProject.models.User;
@@ -139,6 +139,13 @@ public class AppController {
         model.addAttribute("comment",comment);
 
         return "new_comment";
+    }
+
+    @RequestMapping(value = "/savecomment", method = RequestMethod.POST)
+    public String saveComment(@ModelAttribute("comment") Comment comment) {
+        commentController.createComment(comment);
+
+        return "redirect:/";
     }
 
 

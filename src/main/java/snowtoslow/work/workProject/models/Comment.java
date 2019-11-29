@@ -1,6 +1,7 @@
 package snowtoslow.work.workProject.models;
 
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Comment {
 
     @Column(name = "create_time")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @CreationTimestamp
     private Date createTime;
 
     @Column(name = "user_id")

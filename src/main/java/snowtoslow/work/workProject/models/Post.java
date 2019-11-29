@@ -2,6 +2,8 @@ package snowtoslow.work.workProject.models;
 
 
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -17,6 +19,7 @@ public class Post {
 
     @Id
     @Column(name = "post_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int postId;
 
     @Column(name = "post_title")
@@ -27,10 +30,12 @@ public class Post {
 
     @Column(name = "create_time")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @CreationTimestamp
     private Date create_time;
 
     @Column(name = "update_time")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @UpdateTimestamp
     private Date update_time;
 
     @Column(name = "post_status")
@@ -38,7 +43,7 @@ public class Post {
     private PostStatus postStatus;
 
     @OneToMany(mappedBy = "post")
-    private Collection<Comment> comments;
+    private List<Comment> comments;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -104,11 +109,11 @@ public class Post {
         this.userId = userId;
     }
 
-    public Collection<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Collection<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 }
