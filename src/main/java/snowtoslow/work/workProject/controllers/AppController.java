@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import snowtoslow.work.workProject.models.Comment;
 import snowtoslow.work.workProject.models.Post;
 import snowtoslow.work.workProject.models.User;
 
@@ -26,6 +27,9 @@ public class AppController {
 
     @Autowired
     private UserController userController;
+
+    @Autowired
+    private CommentController commentController;
 
 
 
@@ -46,16 +50,10 @@ public class AppController {
 
     }
 
-    @RequestMapping("/users")
-    public String ListOfUsers(Model model){
-        List<User> users = userController.readAllUsers();
-        model.addAttribute("users", users);
 
-        return "users";
-    }
 
     @RequestMapping("/new")
-    public String showNewProductPage(Model model) {
+    public String showNewPostPage(Model model) {
         Post post = new Post();
         model.addAttribute("post", post);
 
@@ -77,5 +75,77 @@ public class AppController {
 
         return mav;
     }
+
+    @RequestMapping("/delete/{id}")
+    public String deletePost(@PathVariable(name = "id") int id) {
+        postController.deletePost(id);
+        return "redirect:/";
+    }
+
+
+    //users
+    @RequestMapping("/users")
+    public String ListOfUsers(Model model){
+        List<User> users = userController.readAllUsers();
+        model.addAttribute("users", users);
+
+        return "users";
+    }
+
+    @RequestMapping("/newuser")
+    public String showNewUserPage(Model model){
+        User user = new User();
+        model.addAttribute("user",user);
+
+        return "new_user";
+    }
+
+    @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
+    public String saveUser(@ModelAttribute("user") User user) {
+        userController.createUser(user);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping("edituser/{id}")
+    public ModelAndView showEditUserPage(@PathVariable(name = "id") int id){
+        ModelAndView mav = new ModelAndView("edit_user");
+        User user = userController.readUserById(id);
+        mav.addObject("user",user);
+
+        return mav;
+
+    }
+
+    @RequestMapping("/deleteuser/{id}")
+    public String deleteUser(@PathVariable(name = "id") int id){
+
+        userController.deleteUser(id);
+
+        return "redirect:/";
+    }
+
+    //comments
+    public String ListOfComments(Model model){
+        List<Comment> comments = commentController.readAllComments();
+        model.addAttribute("comments", comments);
+
+        return null;
+    }
+
+    @RequestMapping("/newcomment")
+    public String showNewCommentPage(Model model){
+        Comment comment = new Comment();
+        model.addAttribute("comment",comment);
+
+        return "new_comment";
+    }
+
+
+
+
+
+
+
 
 }

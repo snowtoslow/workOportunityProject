@@ -25,20 +25,25 @@
                 <td><input type="text" th:field="*{postStatus}" /></td>
             </tr>
             <tr>
-                <td>Created Time:</td>
-                <td><input type="datetime-local" th:field="*{create_time}" /></td>
-            </tr>
-            <tr>
                 <td>Post Content:</td>
                 <td><input type="text" th:field="*{postContent}" /></td>
+            </tr>
+            <tr>
+                <td>Created Time:</td>
+                <td><input type="datetime-local" th:field="*{create_time}" /></td>
             </tr>
             <tr>
                 <td>Updated Time:</td>
                 <td><input type="datetime-local" th:field="*{update_time}" /></td>
             </tr>
+            <tr>
+                <td>User id:</td>
+                <td><input type="number" th:field="*{userId}" /></td>
+            </tr>
 
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>
+
 
 
         </table>

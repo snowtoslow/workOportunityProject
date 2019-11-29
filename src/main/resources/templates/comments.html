@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ListOfComments</title>
+</head>
+<div align="center">
+    <h1>Comments List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+
+        <thead>
+
+        <tr>
+            <th>Comment ID</th>
+            <th>Comment Content</th>
+            <th>Create Time</th>
+            <th>User Id</th>
+            <th>Post Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="comment : ${comments}">
+            <td th:text="${comment.commentId}"></td>
+            <td th:text="${comment.commentContent}"></td>
+            <td th:text="${comment.createTime}"></td>
+            <td th:text="${comment.userId}"></td>
+            <td th:text="${comment.postId}"></td>
+            <td><span th:each="post : ${comment.post}" th:text="${post.postId} "/></td>
+            <td>
+
+            </td>
+
+
+
+        </tbody>
+    </table>
+</div>
+</html

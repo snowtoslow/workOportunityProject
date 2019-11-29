@@ -3,11 +3,11 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <title>Edit Product</title>
+    <title>Edit Post</title>
 </head>
 <body>
 <div align="center">
-    <h1>Edit Product</h1>
+    <h1>Edit Post</h1>
     <br />
     <form action="#" th:action="@{/save}" th:object="${post}"
           method="post">
@@ -30,10 +30,20 @@
                 <td><input type="text" th:field="*{postStatus}" /></td>
             </tr>
             <tr>
+                <td>Time of Start Editing:</td>
+                <td><input type="datetime-local" th:field="*{create_time}" /></td>
+            </tr>
+            <tr>
+                <td>Time of finish Editing:</td>
+                <td><input type="datetime-local" th:field="*{update_time}" /></td>
+            </tr>
+            <tr>
                 <td>Post Content:</td>
                 <td><input type="text" th:field="*{postContent}" /></td>
 
                 <td colspan="2"><button type="submit">Save</button> </td>
+
+
             </tr>
         </table>
     </form>

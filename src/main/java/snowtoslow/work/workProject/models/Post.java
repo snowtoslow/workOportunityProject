@@ -2,6 +2,8 @@ package snowtoslow.work.workProject.models;
 
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
@@ -24,9 +26,11 @@ public class Post {
     private String postContent;
 
     @Column(name = "create_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date create_time;
 
     @Column(name = "update_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date update_time;
 
     @Column(name = "post_status")
@@ -38,7 +42,8 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    @MapsId
+    private User userId;
 
 
 
@@ -91,12 +96,12 @@ public class Post {
         this.postStatus = postStatus;
     }
 
-    public User getUser() {
-        return user;
+    public User getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     public Collection<Comment> getComments() {

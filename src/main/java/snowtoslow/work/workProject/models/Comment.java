@@ -1,9 +1,11 @@
 package snowtoslow.work.workProject.models;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+
 
 
 @Entity
@@ -19,6 +21,7 @@ public class Comment {
     private String commentContent;
 
     @Column(name = "create_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date createTime;
 
     @Column(name = "user_id")

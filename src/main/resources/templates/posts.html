@@ -6,7 +6,7 @@
 </head>
 <div align="center">
     <h1>Post List</h1>
-    <a href="/new">Create New Product</a>
+    <a href="/new">Create New Post</a>
     <br/><br/>
     <table border="1" cellpadding="10">
 
@@ -19,6 +19,8 @@
             <th>Created AT</th>
             <th>Update At</th>
             <th>Post Status</th>
+            <th>User Id</th>
+            <th>Comments</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -30,8 +32,11 @@
             <td th:text="${post.create_time}"></td>
             <td th:text="${post.update_time}"></td>
             <td th:text="${post.postStatus}"></td>
+            <td><span th:each="user : ${post.userId}" th:text="${user.userId} "/></td>
+            <td><span th:each="comment : ${post.comments}" th:text="${comment.commentContent} "/></td>
             <td>
-                <a th:href="@{/edit/{id}(id=${post.postId})}">Edit</a>
+                <a th:href="@{/edit/{id}(id=${post.postId})}">Edit</a> |
+                <a th:href="@{/delete/{id}(id=${post.postId})}">Delete</a>
             </td>
 
 

@@ -6,6 +6,8 @@
 </head>
 <div align="center">
     <h1>User List</h1>
+    <a href="/newuser">Create New User</a>
+    <br/><br/>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
@@ -27,9 +29,10 @@
             <td th:text="${user.userFirstName}"></td>
             <td th:text="${user.userEmail}"></td>
             <td th:text="${user.userStatus}"></td>
-
-
             <td>
+                <a th:href="@{/edituser/{id}(id=${user.userId})}">Edit</a> |
+                <a th:href="@{/deleteuser/{id}(id=${user.userId})}">Delete</a>
+            </td>
 
         </tbody>
     </table>
