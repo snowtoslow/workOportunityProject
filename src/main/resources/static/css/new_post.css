@@ -1,0 +1,101 @@
+*{
+    background-image: url("social.png");
+
+}
+table{
+    border-collapse: collapse;
+}
+.header{
+    font-size: 55px;
+}
+#links{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+}
+#links2{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 5px;
+}
+#links3{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 5px;
+}
+a{
+    text-decoration: none;
+}
+table{
+    font-size: 20px;
+}
+.head_comands{
+    width: 200px;
+    height: 45px;
+    font-size: 15px;
+    color: #3339ff;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #ff5858;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+.head_comands_Edit_Delete{
+    width: 80px;
+    height: 45px;
+    font-size: 15px;
+    color: #056A17;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #7cd2ff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+.head_comands:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fa6d05;
+    transform: translateY(-7px);
+}
+.head_comands_Edit_Delete:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #000000;
+    transform: translateY(-7px);
+}
+.table_comands{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    background-color: #ff5858;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+.table_comands:hover {
+    background-color: #fa6d05;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+.divisor{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 25px;
+}

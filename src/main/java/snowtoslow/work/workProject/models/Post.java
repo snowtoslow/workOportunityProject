@@ -7,7 +7,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class Post {
 
     @Id
     @Column(name = "post_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int postId;
 
     @Column(name = "post_title")
@@ -46,8 +45,9 @@ public class Post {
     private List<Comment> comments;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    @MapsId
+    @JoinColumn(name="user_id", nullable=true, updatable = false)
+    //@MapsId("user_id")
+    //@Embedded
     private User userId;
 
 

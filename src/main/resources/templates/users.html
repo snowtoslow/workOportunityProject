@@ -3,40 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>ListOfUsers</title>
+    <link th:href="@{/css/user.css}" rel="stylesheet" />
 </head>
 <div align="center">
     <h1>User List</h1>
-    <a href="/newuser">Create New User</a>
+    <a id="links2" href="/newuser"><button class="head_comands">Create New User</button></a>
+    <a id="links" href="/"><button class="head_comands">Home Page</button></a>
     <br/><br/>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>User ID</th>
+
             <th>Username</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Email</th>
-            <th>User Status</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="user : ${users}">
-            <td th:text="${user.userId}"></td>
-            <td th:text="${user.userName}"></td>
-            <td th:text="${user.userLastName}"></td>
-            <td th:text="${user.userFirstName}"></td>
-            <td th:text="${user.userEmail}"></td>
-            <td th:text="${user.userStatus}">
 
-            </td>
             <td>
-                <a th:href="@{/edituser/{id}(id=${user.userId})}">Edit</a> |
-                <a th:href="@{/deleteuser/{id}(id=${user.userId})}">Delete</a>
+                <a th:href="@{/userinfo/{id}(id=${user.userId})}" th:text="${user.userName}" target="_blank" style="color:red" />
             </td>
 
+            </tr>
         </tbody>
     </table>
 </div>
 </html>
+
+

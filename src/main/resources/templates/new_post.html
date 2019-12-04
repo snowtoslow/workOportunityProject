@@ -3,15 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <title>Create New Post</title>
+    <link th:href="@{/css/new_post.css}" rel="stylesheet"/>
 </head>
 <body>
 <div align="center">
     <h1>Create New Post</h1>
+    <a id="links2" href="/"><button class="head_comands">Home Page</button></a>
     <br />
     <form action="#" th:action="@{/save}" th:object="${post}"
           method="post">
 
         <table border="0" cellpadding="10">
+
+            <!--<tr>
+                <td>Post ID:</td>
+                <td><input type="text" th:field="*{postId}" /></td>
+            </tr>-->
             <tr>
                 <td>Post Title:</td>
                 <td><input type="text" th:field="*{postTitle}" /></td>
@@ -27,11 +34,16 @@
 
             <tr>
                 <td>User id:</td>
-                <td><input type="number" th:field="*{userId}" /></td>
+                <td><input type="number" th:field="*{userId}"/></td>
             </tr>
+            <!--<tr>
+                <td>User id:</td>
+                <td><input type="hidden" th:field="*{userId}"/></td>
+            </tr>-->
 
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <a id="links" th:href="@{/save}"><button class="head_comands">Save</button></a>
+                <!--<td colspan="2"><button type="submit">Save</button> </td>-->
 
 
 

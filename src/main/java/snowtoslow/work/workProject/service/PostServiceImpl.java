@@ -56,5 +56,11 @@ public class PostServiceImpl {
         postRepository.deleteById(id);
     }
 
+    public void savePost(Post post) {
+        postRepository.save(post);
+    }
+
+
+
 
 }
