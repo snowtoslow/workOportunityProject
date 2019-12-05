@@ -105,6 +105,16 @@ public class AppController {
         return "post_full_info";
     }
 
+    @RequestMapping("/postcontent/{id}")
+    public String postContent(@PathVariable(name = "id") int id,Model model){
+        Post post = postController.readPostById(id);
+
+        model.addAttribute("postcontent",post);
+
+        return "post_content";
+
+    }
+
     //users
     @RequestMapping("/users")
     public String ListOfUsers(Model model){

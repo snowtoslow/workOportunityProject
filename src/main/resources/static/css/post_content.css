@@ -73,7 +73,7 @@ table{
 .head_comands_Edit_Delete:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #000000;
+    color:  #df4604 ;
     transform: translateY(-7px);
 }
 .table_comands{

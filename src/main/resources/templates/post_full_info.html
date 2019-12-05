@@ -33,8 +33,8 @@
             <td th:text="${post.create_time}" aria-readonly="true"></td>
             <td th:text="${post.update_time}" aria-readonly="true"></td>
             <td th:text="${post.postStatus}" aria-readonly="true"></td>
-            <td><span th:each="user : ${post.userId}" th:text="${user.userName} " aria-readonly="true"/></td>
-            <td><span th:each="comment : ${post.comments}" th:text="${comment.commentContent} " aria-readonly="true"/></td>
+            <td><span th:each="user : ${post.userId}" th:text="${user.userName} " readonly/></td>
+            <td><span th:each="comment : ${post.comments}" th:text="${comment.commentContent} " readonly/></td>
             <td>
                 <a id="links2" th:href="@{/edit/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete">Edit</button></a>
                 <a id="links3" th:href="@{/delete/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete">Delete</button></a>

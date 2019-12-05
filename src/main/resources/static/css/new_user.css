@@ -31,7 +31,8 @@ table{
 }*/
 
 *{
-    background-image: url("new_user.webp");
+    background-image: url("pictures/new_user.webp");
+    background-size: 1920px 1080px
 
 }
 table{

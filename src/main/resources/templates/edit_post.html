@@ -16,14 +16,30 @@
 
         <table border="0" cellpadding="10">
             <tr>
+                <td>
+                    <input type="number" th:field="*{postId}" readonly style="display:none" />
+                </td>
+            </tr>
+            <tr>
                 <td>Post Title:</td>
                 <td>
                     <input type="text" th:field="*{postTitle}" />
                 </td>
             </tr>
             <tr>
+                <td>Creation Time:</td>
+                <td>
+                    <input type="date" th:field="*{create_time}" readonly/>
+                </td>
+            </tr>
+            <tr>
                 <td>Post Status:</td>
-                <td><input type="text" th:field="*{postStatus}" /></td>
+                <td>
+                    <select postStatus = "postStatus">
+                        <option value = "DRAFT">DRAFT</option>
+                        <option value = "PUBLISHED">PUBLISHED</option>
+                    </select>
+                </td>
             </tr>
 
             <tr>
@@ -34,7 +50,7 @@
             <tr>
 
                 <td>User id:</td>
-                <td><input type="number" th:field="*{userId.userId}" readonly/></td>
+                <td><input type="number" th:field="*{userId.userId}" readonly style="display:none"/></td>
             </tr>
             <tr>
                 <td>User Name:</td>

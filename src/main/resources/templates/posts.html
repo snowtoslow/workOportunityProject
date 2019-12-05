@@ -6,7 +6,7 @@
     <link th:href="@{/css/post.css}" rel="stylesheet" />
 </head>
 <div align="center">
-    <p><font color="#40f4b8 " <h1 class="header">Post List</h1> </p>
+    <p><font color="#40f4b8 " ><h1 class="header">Post List</h1> </p>
     <a id="links" href="/"><button class="head_comands">Home Page</button></a>
     <a id="links2" href="/new"><button class="head_comands">Create New Post</button></a>
     <br/><br/>
@@ -15,7 +15,8 @@
 
         <tr th:each="post : ${posts}">
             <td>
-                <a th:href="@{/postinfo/{id}(id=${post.postId})}" th:text="${post.postTitle}" target="_blank" style="color:red" />
+                <a th:href="@{/postcontent/{id}(id=${post.postId})}"  th:text="${post.postTitle}" style="color:red" />
+                <a id="links3" th:href="@{/postinfo/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete">Full Info</button></a>
             </td>
         </tr>
 

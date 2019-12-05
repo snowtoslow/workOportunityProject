@@ -29,7 +29,6 @@ public class Post {
 
     @Column(name = "create_time")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @CreationTimestamp
     private Date create_time;
 
     @Column(name = "update_time")

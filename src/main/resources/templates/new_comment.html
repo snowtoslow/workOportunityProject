@@ -3,10 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Create New Comment</title>
+    <link th:href="@{/css/new_comment.css}" rel="stylesheet"/>
+
 </head>
 <body>
 <div align="center">
     <h1>Create New Comment</h1>
+    <a id="links2" href="/"><button class="head_comands" >Home Page</button></a>
     <br />
     <form action="#" th:action="@{/savecomment}" th:object="${comment}"
           method="post">
@@ -14,19 +17,21 @@
         <table border="0" cellpadding="10">
 
             <tr>
-                <td>Comment Content:</td>
+                <td>Comment:</td>
                 <td><input type="text" th:field="*{commentContent}" /></td>
             </tr>
+
+            <!--<tr>
+                <td><input type="text" th:field="*{commentContent}" /></td>
+            </tr>-->
+
             <tr>
-                <td>userId:</td>
-                <td><input type="text" th:field="*{userId}" /></td>
+                <td>UserName:</td>
+                <td><input type="text" th:field="*{userId.userName}"/></td>
             </tr>
 
-
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
-
-
+                <a id="links" th:href="@{/save}"><button class="head_comands">Save</button></a>
 
         </table>
     </form>

@@ -26,8 +26,10 @@ public class Comment {
     @CreationTimestamp
     private Date createTime;
 
-    @Column(name = "user_id")
-    private int userId;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=true, updatable = false)
+    private User userId;
 
     @ManyToOne
     @JoinColumn(name="post_id", nullable=false)
@@ -68,11 +70,11 @@ public class Comment {
         this.post = post;
     }
 
-    public int getUserId() {
+    public User getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(User userId) {
         this.userId = userId;
     }
 }

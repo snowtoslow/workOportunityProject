@@ -22,7 +22,7 @@
         <tr th:each="user : ${users}">
 
             <td>
-                <a th:href="@{/userinfo/{id}(id=${user.userId})}" th:text="${user.userName}" target="_blank" style="color:red" />
+                <a th:href="@{/userinfo/{id}(id=${user.userId})}" th:text="${user.userName}" style="color:red" />
             </td>
 
             </tr>

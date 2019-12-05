@@ -1,7 +1,7 @@
 *{
 
-    background-image: url("for_user.jpg");
-    height: 50%;
+    background-image: url("pictures/for_user.jpg");
+    background-size: 1920px 1080px
 }
 table{
     border-collapse: collapse;
