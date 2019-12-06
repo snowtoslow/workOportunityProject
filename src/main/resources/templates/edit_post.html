@@ -35,9 +35,9 @@
             <tr>
                 <td>Post Status:</td>
                 <td>
-                    <select postStatus = "postStatus">
-                        <option value = "DRAFT">DRAFT</option>
-                        <option value = "PUBLISHED">PUBLISHED</option>
+                    <select th:field="*{postStatus}">
+                        <option th:value="'DRAFT'" th:text="DRAFT"></option>
+                        <option th:value="'PUBLISHED'" th:text="PUBLISHED"></option>
                     </select>
                 </td>
             </tr>
