@@ -37,9 +37,12 @@
             </tr>
             <tr>
                 <td>User Status:</td>
-                <td><input type="text" th:field="*{userStatus}" />
-
-
+                <td>
+                    <select th:field="*{userStatus}">
+                        <option th:value="'ACTIVE'" th:text="ACTIVE"></option>
+                        <option th:value="'INACTIVE'" th:text="INACTIVE"></option>
+                        <option th:value="'BLOCKED'" th:text="BLOCKED"></option>
+                    </select>
                 </td>
 
 
