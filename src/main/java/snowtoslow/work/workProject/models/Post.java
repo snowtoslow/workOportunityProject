@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.List;
 
@@ -22,9 +23,11 @@ public class Post {
     private int postId;
 
     @Column(name = "post_title")
+    @NotEmpty(message = "This Field Must Contain Information !!")
     private String postTitle;
 
     @Column(name = "post_content")
+    @NotEmpty(message = "This Field Must Contain Information !!")
     private String postContent;
 
     @Column(name = "create_time")
