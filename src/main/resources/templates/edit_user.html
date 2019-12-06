@@ -45,7 +45,13 @@
             </tr>
             <tr>
                 <td>User Status:</td>
-                <td><input type="text" th:field="*{userStatus}" /></td>
+                <td>
+                    <select th:field="*{userStatus}">
+                        <option th:value="'ACTIVE'" th:text="ACTIVE"></option>
+                        <option th:value="'INACTIVE'" th:text="INACTIVE"></option>
+                        <option th:value="'BLOCKED'" th:text="BLOCKED"></option>
+                    </select>
+                </td>
 
                 <td colspan="2"><a id="links" th:href="@{/saveuser}"><button class="head_comands">Save</button></a> <!--exsli vdrug ne rabotaet meniai saveuser na save-->
 
