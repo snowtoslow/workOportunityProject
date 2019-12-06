@@ -25,7 +25,7 @@
                 <span th:each="comment : ${postcontent.userId}" th:text="${comment.userName}"></span>
 
             </h1><br>
-            <a id="links4" th:href="@{/newcomment}"}><button class="head_comands_Edit_Delete" align ="right">Add comment</button></a>
+            <a id="links4" th:href="@{/createcomment/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete" align ="right">Add comment</button></a>
         </tr>
 </div>
 </html>
