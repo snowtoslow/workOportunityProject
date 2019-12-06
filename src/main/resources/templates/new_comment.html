@@ -18,12 +18,9 @@
 
             <tr>
                 <td>Comment:</td>
-                <td><input type="text" th:field="*{commentContent}" /></td>
+                <td><input type="text" th:field="*{commentContent}"/></td>
             </tr>
 
-            <!--<tr>
-                <td><input type="text" th:field="*{commentContent}" /></td>
-            </tr>-->
 
             <tr>
                 <td>UserName:</td>
@@ -31,7 +28,7 @@
             </tr>
 
             <tr>
-                <a id="links" th:href="@{/save}"><button class="head_comands">Save</button></a>
+                <a id="links" th:href="@{/savecomment}"><button class="head_comands">Save</button></a><!--hange to savecomment-->
 
         </table>
     </form>
