@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:font-style="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Post Content</title>
@@ -19,7 +19,11 @@
                 <span style="color:darkred" th:text="${post.postContent}" ></span><br>
                 <br>
                 Comments:<br>
-                <span th:each="comment : ${postcontent.comments}" th:text="${comment.commentContent} "></span>
+                <span th:each="comment : ${postcontent.comments}" th:text="${comment.commentId}"></span> .
+                <span th:each="comment : ${postcontent.comments}" th:text="${comment.commentContent} "></span><br>
+                by:
+                <span th:each="comment : ${postcontent.userId}" th:text="${comment.userName}"></span>
+
             </h1><br>
             <a id="links4" th:href="@{/newcomment}"}><button class="head_comands_Edit_Delete" align ="right">Add comment</button></a>
         </tr>
