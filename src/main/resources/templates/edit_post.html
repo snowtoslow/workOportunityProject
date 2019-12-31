@@ -4,15 +4,22 @@
 <head>
     <meta charset="utf-8" />
     <title>Edit Post</title>
+    <link th:href="@{/css/edit_post.css}" rel="stylesheet" />
 </head>
 <body>
 <div align="center">
     <h1>Edit Post</h1>
+    <a id="links" href="/"><button class="head_comands">Home Page</button></a>
     <br />
     <form action="#" th:action="@{/save}" th:object="${post}"
           method="post">
 
         <table border="0" cellpadding="10">
+            <tr>
+                <td>
+                    <input type="number" th:field="*{postId}" readonly style="display:none" />
+                </td>
+            </tr>
             <tr>
                 <td>Post Title:</td>
                 <td>
@@ -20,15 +27,40 @@
                 </td>
             </tr>
             <tr>
+                <td>Creation Time:</td>
+                <td>
+                    <input type="date" th:field="*{create_time}" readonly/>
+                </td>
+            </tr>
+            <tr>
                 <td>Post Status:</td>
-                <td><input type="text" th:field="*{postStatus}" /></td>
+                <td>
+                    <select th:field="*{postStatus}">
+                        <option th:value="'DRAFT'" th:text="DRAFT"></option>
+                        <option th:value="'PUBLISHED'" th:text="PUBLISHED"></option>
+                    </select>
+                </td>
             </tr>
 
             <tr>
                 <td>Post Content:</td>
                 <td><input type="text" th:field="*{postContent}" /></td>
+            </tr>
 
-                <td colspan="2"><button type="submit">Save</button> </td>
+            <tr>
+
+                <td>User id:</td>
+                <td><input type="number" th:field="*{userId.userId}" readonly style="display:none"/></td>
+            </tr>
+            <tr>
+                <td>User Name:</td>
+                <td><input type="text" th:field="*{userId.userName}" readonly/></td>
+            </tr>
+
+
+
+
+                <td colspan="2"><a id="links2" th:href="@{/save}"><button class="head_comands">Save</button></a>
 
 
             </tr>

@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <title>Create New User</title>
+    <link th:href="@{/css/new_user.css}" rel="stylesheet"/>
 </head>
 <body>
 <div align="center">
     <h1>Create New User</h1>
+    <a id="links3" href="/"><button class="head_comands">Home Page</button></a>
     <br />
     <form action="#" th:action="@{/saveuser}" th:object="${user}"
           method="post">
@@ -35,16 +37,19 @@
             </tr>
             <tr>
                 <td>User Status:</td>
-                <td><input type="text" th:field="*{userStatus}" />
-
-
+                <td>
+                    <select th:field="*{userStatus}">
+                        <option th:value="'ACTIVE'" th:text="ACTIVE"></option>
+                        <option th:value="'INACTIVE'" th:text="INACTIVE"></option>
+                        <option th:value="'BLOCKED'" th:text="BLOCKED"></option>
+                    </select>
                 </td>
 
 
             </tr>
 
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <a  id="links2" th:href="@{/saveuser}"><button class="head_comands">Save</button></a> <!--change to saveuser-->
 
 
 

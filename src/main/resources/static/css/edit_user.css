@@ -1,0 +1,41 @@
+*{
+    background-image: url("pictures/edit_user.jpg");
+    background-size: 1920px 1080px
+
+}
+
+#links{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+}
+#links2{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 5px;
+}
+
+.head_comands{
+    width: 200px;
+    height: 45px;
+    font-size: 15px;
+    color: #3339ff;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #730726 ;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+.head_comands:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #730726 ;
+    transform: translateY(-7px);
+}

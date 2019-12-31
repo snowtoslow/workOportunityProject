@@ -18,4 +18,8 @@ public interface PostService {
 
     void deletePost(int id);
 
+    void savePost(Post post);
+
+
+
 }

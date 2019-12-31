@@ -3,46 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>ListOfPosts</title>
+    <link th:href="@{/css/post.css}" rel="stylesheet" />
 </head>
 <div align="center">
-    <h1>Post List</h1>
-    <a href="/new">Create New Post</a>
+    <p><font color="#40f4b8 " ><h1 class="header">Post List</h1> </p>
+    <a id="links" href="/"><button class="head_comands">Home Page</button></a>
+    <a id="links2" href="/new"><button class="head_comands">Create New Post</button></a>
     <br/><br/>
-    <table border="1" cellpadding="10">
+    <table id="table" border="1" cellpadding="10">
 
-        <thead>
 
-        <tr>
-            <th>Post ID</th>
-            <th>Post Title</th>
-            <th>Post Content</th>
-            <th>Created AT</th>
-            <th>Update At</th>
-            <th>Post Status</th>
-            <th>User Id</th>
-            <th>Comments</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
         <tr th:each="post : ${posts}">
-            <td th:text="${post.postId}"></td>
-            <td th:text="${post.postTitle}"></td>
-            <td th:text="${post.postContent}"></td>
-            <td th:text="${post.create_time}"></td>
-            <td th:text="${post.update_time}"></td>
-            <td th:text="${post.postStatus}"></td>
-            <td><span th:each="user : ${post.userId}" th:text="${user.userId} "/></td>
-            <td><span th:each="comment : ${post.comments}" th:text="${comment.commentContent} "/></td>
             <td>
-                <a th:href="@{/edit/{id}(id=${post.postId})}">Edit</a> |
-                <a th:href="@{/delete/{id}(id=${post.postId})}">Delete</a> |
-                <a th:href="@{/newcomment}">Add comment</a>
+                <a th:href="@{/postcontent/{id}(id=${post.postId})}"  th:text="${post.postTitle}" style="color:red" />
+                <a id="links3" th:href="@{/postinfo/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete">Full Info</button></a>
             </td>
+        </tr>
 
 
 
-        </tbody>
-    </table>
+
+       <!-- <td th:text="${post.postTitle}"></td>-->
+
+
 </div>
 </html>

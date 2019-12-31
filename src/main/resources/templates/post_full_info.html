@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Info</title>
+    <link th:href="@{/css/post_full_info.css}" rel="stylesheet" />
+</head>
+<div align="center">
+    <a id="links" href="/"><button class="head_comands">Home Page</button></a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+
+        <thead>
+
+        <tr>
+            <th>Post ID</th>
+            <th>Post Title</th>
+            <th>Post Content</th>
+            <th>Created AT</th>
+            <th>Update At</th>
+            <th>Post Status</th>
+            <th>User Name</th>
+            <th>Comments</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${postinfo}">
+            <td th:text="${post.postId}" aria-readonly="true"></td>
+            <td th:text="${post.postTitle}" aria-readonly="true"></td>
+            <td th:text="${post.postContent}" aria-readonly="true"></td>
+            <td th:text="${post.create_time}" aria-readonly="true"></td>
+            <td th:text="${post.update_time}" aria-readonly="true"></td>
+            <td th:text="${post.postStatus}" aria-readonly="true"></td>
+            <td><span th:each="user : ${post.userId}" th:text="${user.userName} " readonly/></td>
+            <td><span th:each="comment : ${post.comments}" th:text="${comment.commentContent} " readonly/></td>
+            <td>
+                <a id="links2" th:href="@{/edit/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete">Edit</button></a>
+                <a id="links3" th:href="@{/delete/{id}(id=${post.postId})}"><button class="head_comands_Edit_Delete">Delete</button></a>
+            </td>
+
+
+
+        </tbody>
+    </table>
+</div>
+</html>

@@ -40,4 +40,11 @@ public class PostController implements PostService {
     public void deletePost(@PathVariable int id) {
         postService.deletePost(id);
     }
+
+    @Override
+    public void savePost(Post post) {
+        postService.savePost(post);
+    }
+
+
 }
